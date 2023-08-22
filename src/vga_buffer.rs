@@ -142,7 +142,11 @@ macro_rules! println {
 #[doc(hidden)]
 pub fn _print(args: fmt::Arguments) {
     use core::fmt::Write;
-    WRITER.lock().write_fmt(args).unwrap();
+    use x86_64::instructions::interrupts;
+    
+    interrupts::without_interrupts(|| {
+        WRITER.lock().write_fmt(args).unwrap();
+    });
 }
 
 #[test_case]
@@ -159,11 +163,15 @@ fn test_no_panic_long() {
 
 #[test_case]
 fn test_buffer_write() {
-    let test_message = "Hello world!";
-    println!("{}", test_message);
+    use x86_64::instructions::interrupts;
 
-    for (i, c) in test_message.chars().enumerate() {
-        let buffer_char = char::from(WRITER.lock().buffer.chars[BUFFER_HEIGHT-2][i].read().ascii_character);
-        assert_eq!(buffer_char, c);
-    }
+    interrupts::without_interrupts(|| {
+        let test_message = "Hello world!";
+        println!("{}", test_message);
+    
+        for (i, c) in test_message.chars().enumerate() {
+            let buffer_char = char::from(WRITER.lock().buffer.chars[BUFFER_HEIGHT-2][i].read().ascii_character);
+            assert_eq!(buffer_char, c);
+        }
+    });
 }

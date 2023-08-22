@@ -1,0 +1,12 @@
+"filename", "language", "Rust", "JSON", "comment", "blank", "total"
+"/Users/brian/Programming/lee_os/src/gdt.rs", "Rust", 45, 0, 7, 9, 61
+"/Users/brian/Programming/lee_os/src/interrupts.rs", "Rust", 88, 0, 0, 25, 113
+"/Users/brian/Programming/lee_os/src/lib.rs", "Rust", 68, 0, 0, 16, 84
+"/Users/brian/Programming/lee_os/src/main.rs", "Rust", 36, 0, 0, 10, 46
+"/Users/brian/Programming/lee_os/src/serial.rs", "Rust", 30, 0, 0, 5, 35
+"/Users/brian/Programming/lee_os/src/vga_buffer.rs", "Rust", 149, 0, 0, 28, 177
+"/Users/brian/Programming/lee_os/tests/basic_boot.rs", "Rust", 20, 0, 0, 6, 26
+"/Users/brian/Programming/lee_os/tests/should_panic.rs", "Rust", 24, 0, 1, 6, 31
+"/Users/brian/Programming/lee_os/tests/stack_overflow.rs", "Rust", 43, 0, 0, 13, 56
+"/Users/brian/Programming/lee_os/x86_64-lee_os.json", "JSON", 0, 15, 0, 0, 15
+"Total", "-", 503, 15, 8, 118, 644
